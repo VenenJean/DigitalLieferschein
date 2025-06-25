@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media screen {
+    body {
+        background: #e0e0e0;
+        margin: 10mm;
+    }
+
+    .din-5008 {
+        width: 210mm;
+        background: white;
+        box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3);
+        margin: 0mm auto;
+    }
+}
+
+@media print {
+    button {
+        display: none;
+    }
+
+    input:not(input[type="checkbox"]),
+    select {
+        border: none;
+        appearance: none;
+        margin-left: 0px;
+        padding-left: 0px;
+        color: black;
+    }
+
+    #recipient {
+        margin: 0;
+    }
+}
