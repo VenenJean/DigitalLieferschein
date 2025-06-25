@@ -1,4 +1,4 @@
-const equipment = ["Headset", "Headphones", "Smartphone", "Laptop", "Mouse", "Keyboard", "Monitor", "USB-C Kabel"];
+const equipment = ["Headset", "Headphones", "Smartphone", "Laptop", "Mouse", "Keyboard", "Monitor", "USB-C Kabel", "Access Point"];
 
 const users = [
     { id: "1", firstname: "Venen", lastname: "Jean", location_id: 1 },
@@ -21,7 +21,8 @@ const users = [
     { id: "18", firstname: "Noah", lastname: "Werner", location_id: 5 },
     { id: "19", firstname: "Helena", lastname: "Pohl", location_id: 13 },
     { id: "20", firstname: "Julian", lastname: "Franke", location_id: 2 },
-    { id: "21", firstname: "Michał ", lastname: "Nowak ", location_id: 6 }
+    { id: "21", firstname: "Michał", lastname: "Nowak ", location_id: 6 },
+    { id: "22", firstname: "Christian", lastname: "Hartung ", location_id: 8 },
 ];
 
 const locations = [
