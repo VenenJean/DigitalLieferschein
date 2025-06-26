@@ -16,11 +16,20 @@ function printDocument() {
     const form = document.getElementById('lieferschein-form');
 
     if (form.checkValidity()) {
+        const wrapper = document.getElementById("print-wrapper");
+        const original = document.getElementById("original-content");
+        const clone = original.cloneNode(true);
+
+        wrapper.innerHTML = '';
+        wrapper.appendChild(original);
+        wrapper.appendChild(clone);
+
         window.print();
     } else {
         form.reportValidity();
     }
 }
+
 
 function updateAmount() {
     const packageInput = document.getElementById("package-count");
