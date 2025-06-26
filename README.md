@@ -1,6 +1,5 @@
 # Dokumentation
 
-> [Live-Preview](https://venenjean.github.io/DigitalLieferschein/)
 
 ## Unterlagen
 
@@ -13,7 +12,7 @@ Dokumente & Quellen die zur Entwicklung verwendet wurden
 
 > Siehe: [data.js](./scripts/data.js) <br>
 
-### [DIN 5008 Briefnorm GitHub CSS](https://github.com/Xiphe/din-5008-css/blob/master/index.html)
+### [DIN 5008 Briefnorm CSS - GitHub](https://github.com/Xiphe/din-5008-css/blob/master/index.html)
 
 ### [DOCX Lieferscheinvorlage](./assets/LieferscheinVorlage.docx)
 
@@ -36,6 +35,5 @@ Dokumente & Quellen die zur Entwicklung verwendet wurden
 - [scripts/](./scripts/)
 - [styles/](./styles/)
 - [index.html](./index.html)
-
 
 \> `Developed by S.Jasinov@item24.com` \<
