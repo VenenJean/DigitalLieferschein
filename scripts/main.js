@@ -10,6 +10,20 @@ function constructAddress() {
     document.getElementById("recipient-address").innerHTML = finalOutput;
 }
 
+function restrictPieDate() {
+    const dateInput = document.getElementById("pie-date");
+    const currentDate = new Date();
+    const today = currentDate.toISOString().split('T')[0];
+
+    const newDate = new Date(currentDate);
+    newDate.setDate(newDate.getDate() + 7);
+
+    const nextWeek = newDate.toISOString().split("T")[0];
+
+    dateInput.min = today;
+    dateInput.max = nextWeek;
+}
+
 function cleanTextarea(textarea) {
     const cleaned = textarea.value
         .split("\n")
@@ -44,13 +58,14 @@ function printDocument() {
     resetLocation();
 }
 
-document.addEventListener('input', function (e) {
-    if (e.target.classList.contains('auto-resize')) {
-        e.target.style.height = 'auto';
-        e.target.style.height = e.target.scrollHeight + 'px';
-    }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener('input', function (e) {
+        if (e.target.classList.contains('auto-resize')) {
+            e.target.style.height = 'auto';
+            e.target.style.height = e.target.scrollHeight + 'px';
+        }
+    });
+
     populateLocations();
+    restrictPieDate();
 });
