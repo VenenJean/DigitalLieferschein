@@ -1,4 +1,4 @@
-function populateSelectMenu({
+function populateSelect({
     selectId,
     dataArray,
     valueFn = item => item.toLowerCase(),
@@ -29,17 +29,60 @@ function populateSelectMenu({
     }
 }
 
+function populateSelectWithOptGroup({
+    selectId,
+    groupedData,
+    valueFn = item => item.id,
+    textFn = item => item.name,
+    onChange = null
+}) {
+    const selectEl = document.getElementById(selectId);
+    selectEl.innerHTML = ""; // Clear existing options
+
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "Auswählen";
+    selectEl.appendChild(defaultOption);
+
+    for (const [groupLabel, items] of Object.entries(groupedData)) {
+        const optgroup = document.createElement("optgroup");
+        optgroup.label = groupLabel;
+
+        items.forEach(item => {
+            const option = document.createElement("option");
+            option.value = valueFn(item);
+            option.textContent = textFn(item);
+            optgroup.appendChild(option);
+        });
+
+        selectEl.appendChild(optgroup);
+    }
+
+    if (onChange) {
+        selectEl.addEventListener("change", event => {
+            const selectedValue = event.target.value;
+            let selectedItem = null;
+
+            for (const items of Object.values(groupedData)) {
+                selectedItem = items.find(d => valueFn(d) === selectedValue);
+                if (selectedItem) break;
+            }
+
+            onChange(selectedItem);
+        });
+    }
+}
 
 function populateLocations(defaultArray = locations) {
-    populateSelectMenu({
+    populateSelectWithOptGroup({
         selectId: "locations",
-        dataArray: defaultArray,
-        valueFn: location => location.id,
-        textFn: location => location.name,
+        groupedData: defaultArray,
+        valueFn: item => item.id,
+        textFn: item => item.name,
         onChange: location => {
-
             if (location) {
-                const locAddr = locations.find(loc => loc.id == location.id).address;
+                const allLocations = Object.values(defaultArray).flat(); // Flatten all groups into one array
+                const locAddr = allLocations.find(loc => loc.id == location.id).address;
 
                 const addrEl = document.getElementById("recipient-address");
                 addrEl.innerHTML = `
@@ -47,9 +90,11 @@ function populateLocations(defaultArray = locations) {
                     ${locAddr.postal_code} ${locAddr.city} <br>
                     ${locAddr.country}
                 `;
+
                 addrEl.contentEditable = location.name === "Home Office";
             } else {
-                addressEl.innerHTML = "KEINE ADDRESSE";
+                const addrEl = document.getElementById("recipient-address");
+                addrEl.innerHTML = "KEINE ADDRESSE";
             }
         }
     });
