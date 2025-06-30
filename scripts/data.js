@@ -1,39 +1,32 @@
-// Beispielausstattung
-const equipment = ["Headset", "Headphones", "Smartphone", "Laptop", "Mouse", "Keyboard", "Monitor", "USB-C Kabel", "Access Point"];
-
-// Beispielbenutzer
-const users = [
-    { id: "1", firstname: "Venen", lastname: "Jean", location_id: 1 },
-    { id: "2", firstname: "Anna", lastname: "Müller", location_id: 2 },
-    { id: "3", firstname: "Lena", lastname: "Schmidt", location_id: 3 },
-    { id: "4", firstname: "Jonas", lastname: "Fischer", location_id: 4 },
-    { id: "5", firstname: "Mira", lastname: "Weber", location_id: 5 },
-    { id: "6", firstname: "Tobias", lastname: "Krüger", location_id: 6 },
-    { id: "7", firstname: "Laura", lastname: "Becker", location_id: 7 },
-    { id: "8", firstname: "Nico", lastname: "Wolf", location_id: 8 },
-    { id: "9", firstname: "Emily", lastname: "Zimmermann", location_id: 9 },
-    { id: "10", firstname: "Felix", lastname: "Neumann", location_id: 10 },
-    { id: "11", firstname: "Sophie", lastname: "Schwarz", location_id: 11 },
-    { id: "12", firstname: "Leon", lastname: "Richter", location_id: 12 },
-    { id: "13", firstname: "Clara", lastname: "Hartmann", location_id: 13 },
-    { id: "14", firstname: "Max", lastname: "Klein", location_id: 3 },
-    { id: "15", firstname: "Ida", lastname: "Schuster", location_id: 7 },
-    { id: "16", firstname: "Paul", lastname: "Hoffmann", location_id: 1 },
-    { id: "17", firstname: "Marlene", lastname: "Lang", location_id: 10 },
-    { id: "18", firstname: "Noah", lastname: "Werner", location_id: 5 },
-    { id: "19", firstname: "Helena", lastname: "Pohl", location_id: 13 },
-    { id: "20", firstname: "Julian", lastname: "Franke", location_id: 2 },
-    { id: "21", firstname: "Michał ", lastname: "Nowak ", location_id: 6 },
-    { id: "22", firstname: "Christian", lastname: "Hartung", location_id: 8 },
-    { id: "23", firstname: "Thomas", lastname: "Wolfers", location_id: 8 },
-];
-
-// Reale Standorte
+// Item Versandstandorte
 const locations = [
-    // Deutschland
+    // Misc
     {
         id: "1",
-        name: "item Solingen",
+        name: "Home Office",
+        address: {
+            street: "Musterstraße",
+            house_number: "1",
+            postal_code: "111111",
+            city: " Musterstadt",
+            country: "Musterland"
+        }
+    },
+    // Deutschland
+    {
+        id: "2",
+        name: "item Solingen Zentrale",
+        address: {
+            street: "Friedenstraße",
+            house_number: "107-109",
+            postal_code: "42699",
+            city: "Solingen",
+            country: "Deutschland"
+        }
+    },
+    {
+        id: "3",
+        name: "item Solingen Piepersberg",
         address: {
             street: "Piepersberg",
             house_number: "35",
@@ -43,7 +36,7 @@ const locations = [
         }
     },
     {
-        id: "2",
+        id: "",
         name: "item Berlin",
         address: {
             street: "Rudower Chaussee",
@@ -54,7 +47,7 @@ const locations = [
         }
     },
     {
-        id: "3",
+        id: "4",
         name: "item Freiburg",
         address: {
             street: "Mitscherlichstraße",
@@ -65,7 +58,7 @@ const locations = [
         }
     },
     {
-        id: "4",
+        id: "5",
         name: "item Hamburg",
         address: {
             street: "Doktor-Flögel-Straße",
@@ -76,7 +69,7 @@ const locations = [
         }
     },
     {
-        id: "5",
+        id: "6",
         name: "item Hannover",
         address: {
             street: "Imkerstraße",
@@ -87,7 +80,7 @@ const locations = [
         }
     },
     {
-        id: "6",
+        id: "7",
         name: "item Ludwigsburg",
         address: {
             street: "Bietigheimer Straße",
@@ -98,7 +91,7 @@ const locations = [
         }
     },
     {
-        id: "7",
+        id: "8",
         name: "item Mannheim",
         address: {
             street: "Badener Straße",
@@ -109,7 +102,7 @@ const locations = [
         }
     },
     {
-        id: "8",
+        id: "9",
         name: "item Mühlhausen",
         address: {
             street: "Zu den Katzentreppen",
@@ -120,7 +113,7 @@ const locations = [
         }
     },
     {
-        id: "9",
+        id: "10",
         name: "item Nossen",
         address: {
             street: "Gewerbestraße",
@@ -131,7 +124,7 @@ const locations = [
         }
     },
     {
-        id: "10",
+        id: "11",
         name: "item Ulm",
         address: {
             street: "August-Nagel-Straße",
@@ -143,8 +136,8 @@ const locations = [
     },
     // Polen
     {
-        id: "11",
-        location_name: "item Polska Sp. z o.o.",
+        id: "12",
+        name: "item Polska Sp. z o.o.",
         address: {
             street: "ul. Kowalska",
             house_number: "34",
@@ -154,8 +147,8 @@ const locations = [
         }
     },
     {
-        id: "12",
-        location_name: "item Polska Sp. z o.o. Oddzial Slask",
+        id: "13",
+        name: "item Polska Sp. z o.o. Oddzial Slask",
         address: {
             street: "ul. Obrzena Zachodnia",
             house_number: "37",
@@ -166,8 +159,8 @@ const locations = [
     },
     // Frankreich
     {
-        id: "13",
-        location_name: "item France SAS",
+        id: "14",
+        name: "item France SAS",
         address: {
             street: "rue Louis RAMEAU",
             house_number: "16-20",
@@ -175,10 +168,28 @@ const locations = [
             city: "Bezons",
             country: "Frankreich"
         }
+    },
+    // Schweiz
+    {
+        id: "15",
+        name: "item Schweiz Lyss GmbH",
+        address: {
+            street: "Südstrasse",
+            house_number: "10d",
+            postal_code: "3250",
+            city: "Lyss",
+            country: "Schweiz"
+        }
+    },
+    {
+        id: "16",
+        name: "item Schweiz Schlatt GmbH",
+        address: {
+            street: "Diessenhoferstrasse",
+            house_number: "14",
+            postal_code: "8252",
+            city: "Schlatt",
+            country: "Schweiz"
+        }
     }
 ];
-
-// Alphabetische sortierung
-users.sort((a, b) => a.firstname.localeCompare(b.firstname));
-equipment.sort((a, b) => a.localeCompare(b));
-locations.sort((a, b) => a.id.localeCompare(b.id));

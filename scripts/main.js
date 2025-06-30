@@ -1,47 +1,57 @@
-function restrictPieDate() {
-    const dateInput = document.getElementById("pie-date");
-    const currentDate = new Date();
-    const today = currentDate.toISOString().split('T')[0];
+function constructAddress() {
+    const recipientLocationEl = document.getElementById("locations");
+    const selectedLocation = recipientLocationEl.options[recipientLocationEl.selectedIndex]?.text || "";
 
-    const newDate = new Date(currentDate);
-    newDate.setDate(newDate.getDate() + 7);
+    const recipientText = document.getElementById("recipient").value.trim() || "";
+    const address = document.getElementById("recipient-address");
 
-    const nextWeek = newDate.toISOString().split("T")[0];
+    const finalOutput = `${selectedLocation}<br>z.H. ${recipientText}<br>${address.innerHTML}`;
 
-    dateInput.min = today;
-    dateInput.max = nextWeek;
+    document.getElementById("recipient-address").innerHTML = finalOutput;
+}
+
+function cleanTextarea(textarea) {
+    const cleaned = textarea.value
+        .split("\n")
+        .map(line => line.trim())
+        .filter(line => line !== '')
+        .join("\n")
+        .replace(/\s{2,}/g, ' ');
+
+    textarea.value = cleaned;
+}
+
+function resetLocation() {
+    // resetting the location & thus the address
+    const locationSelect = document.getElementById("locations");
+    locationSelect.selectedIndex = locationSelect.selectedIndex;
+
+    const changeEvent = new Event('change', { bubbles: true });
+    locationSelect.dispatchEvent(changeEvent);
 }
 
 function printDocument() {
     const form = document.getElementById('lieferschein-form');
+    cleanTextarea(document.getElementById("positionen"));
 
-    if (form.checkValidity()) {
-        alert("Bitte im Druckdialog die Anzahl der Kopien auf 2 setzen!");
-        window.print();
-    } else {
+    if (!form.checkValidity()) {
         form.reportValidity();
-    }
-}
-
-function updateAmount() {
-    const packageInput = document.getElementById("package-count");
-    const selectElement = document.getElementById("equipment");
-
-    const displaySpan = document.createElement("span");
-    displaySpan.id = "package-display";
-    selectElement.parentNode.insertBefore(displaySpan, selectElement);
-
-    function updateDisplay() {
-        displaySpan.textContent = packageInput.value + " x ";
+        return;
     }
 
-    updateDisplay();
-
-    packageInput.addEventListener("input", updateDisplay);
+    constructAddress();
+    // alert("Bitte im Druckdialog die Anzahl der Kopien auf 2 setzen!");
+    // window.print();
+    resetLocation();
 }
+
+document.addEventListener('input', function (e) {
+    if (e.target.classList.contains('auto-resize')) {
+        e.target.style.height = 'auto';
+        e.target.style.height = e.target.scrollHeight + 'px';
+    }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
-    populateSelectMenus();
-    updateAmount();
-    restrictPieDate();
+    populateLocations();
 });

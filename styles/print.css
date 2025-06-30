@@ -1,7 +1,3 @@
-body {
-    margin: 0;
-}
-
 @page {
     size: A4;
     margin: 0;
@@ -15,32 +11,36 @@ body {
 
     .din-5008 {
         width: 210mm;
-        background: white;
+        margin: 0 auto;
+        background: #fff;
         box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3);
-        margin: 0mm auto;
+    }
+
+    .textfeld {
+        margin-top: 100px !important;
     }
 }
 
 @media print {
-    button {
+
+    .textfeld {
+        margin: 0 0 4.23mm 25mm;
+    }
+
+    button,
+    #recipient,
+    select,
+    label[for="recipient"],
+    label[for="locations"] {
         display: none;
     }
 
-    input:not(input[type="checkbox"]),
-    select {
+    input:not([type="checkbox"]),
+    textarea {
         border: none;
         appearance: none;
-        margin-left: 0px;
-        padding-left: 0px;
-        color: black;
-    }
-
-    #recipient {
-        margin: 0;
-    }
-
-
-    label[for="recipient"] {
-        display: none;
+        margin-left: 0;
+        padding-left: 0;
+        color: #000;
     }
 }

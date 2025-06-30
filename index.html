@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-store" />
     <title>Digitallieferschein</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -16,19 +17,21 @@
             item Industrietechnik GmbH | Servicedesk <br> Friedenstraße 107-109 | 42699 Solingen
         </div>
 
-        <div class="vermerkzone">
-            <label for="recipient"><strong>Empfänger</strong></label>
-        </div>
+        <div class="vermerkzone"></div>
 
         <form id="lieferschein-form">
-            <div class="anschriftzone">
-                <select required name="recipient" id="recipient"></select>
+            <div class="anschriftzone" id="anschriftzone">
+                <label for="recipient">Empfänger</label>
+                <input type="text" name="recipient" id="recipient">
+
+                <label for="locations">Addresse</label>
+                <select required name="locations" id="locations"></select>
                 <address id="recipient-address">
                     KEINE ADDRESSE
                 </address>
             </div>
 
-            <div class="informationsblock">
+            <div class=" informationsblock">
                 <img src="assets/ItemLogo.jpg" alt="ItemLogo">
             </div>
 
@@ -38,7 +41,7 @@
                 <div id="data-fields">
                     <div id="sender-data">
                         <label for="sender">Absender</label>
-                        <select required name="sender" id="sender"></select>
+                        <input required type="text" name="sender" id="sender">
 
                         <label for="sender-phone-number">Servicedesk Tel.</label>
                         <input type="tel" disabled value="0212 6580 5000" name="sender-phone-number"
@@ -60,10 +63,10 @@
 
                 <div style="margin-top: 10mm;">
                     <span>
-                        Guten Tag, <br><br>anbei erhälst Du von uns folgende Ausstattung:
-                        <br>
-                        <select required name="equipment" id="equipment"></select>
-                        <br>
+                        Guten Tag, <br><br>anbei erhälst Du von uns folgende Positionen:
+                        <br><br>
+                        <textarea class="auto-resize" name="positionen" id="positionen" cols="30" rows="1"></textarea>
+                        <br><br>
                         Viele Grüße,<br><br>Dein Servicedesk-Team<br>Phone: +49 212 6580-5000
                     </span>
                 </div>
@@ -71,16 +74,16 @@
         </form>
 
         <div class="seitenangabe">
-            <button onclick="printDocument()" type="button">Drucken</button>
+            <button onclick="printDocument()" type="button" id="print-btn">Drucken</button>
         </div>
 
         <div class="fusszeile"></div>
     </div>
 
-
     <script src="scripts/data.js"></script>
     <script src="scripts/population.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="setup.js"></script>
 </body>
 
 </html>

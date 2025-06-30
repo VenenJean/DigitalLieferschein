@@ -1,4 +1,3 @@
-/* Form styles */
 form {
     width: 100%;
 }
@@ -10,21 +9,39 @@ label {
     color: #333;
 }
 
-input:not(input[type="checkbox"]),
-select,
-textarea {
-    width: 200px;
-    padding: 10px;
-    margin-bottom: 20px;
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    border-radius: 4px;
     font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 3px rgba(102, 175, 233, 0.6);
+}
+
+textarea.auto-resize {
+    resize: none;
+    overflow: hidden;
 }
 
 button {
     background-color: #3498db;
-    color: white;
+    color: #fff;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;

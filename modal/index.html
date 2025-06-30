@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modal Form</title>
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .modal-close {
+            float: right;
+            font-weight: bold;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 2px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Trigger button -->
+    <button onclick="openModal()">Formular öffnen</button>
+
+    <!-- Modal -->
+    <div class="modal" id="formModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">Versandformular</div>
+            <form id="shipmentForm">
+                <label>Absender Name + Vorname</label>
+                <input type="text" name="senderName">
+
+                <label>Empfänger Straße</label>
+                <input type="text" name="recipientStreet">
+
+                <label>Empfänger Hausnummer</label>
+                <input type="text" name="recipientHouseNumber">
+
+                <label>Empfänger Postleitzahl</label>
+                <input type="text" name="recipientPostalCode">
+
+                <label>Empfänger Stadt</label>
+                <input type="text" name="recipientCity">
+
+                <label>Empfänger Name + Vorname</label>
+                <input type="text" name="recipientName">
+
+                <label>Expressversand</label>
+                <select name="expressShipping">
+                    <option value="ja">Ja</option>
+                    <option value="nein">Nein</option>
+                </select>
+
+                <label>Paketanzahl</label>
+                <input type="number" name="packageCount" min="1">
+
+                <label>Piepersberg-Datum</label>
+                <input type="date" name="piepersbergDate">
+
+                <label>Positionen</label>
+                <textarea name="positions"></textarea>
+
+                <button type="submit">Absenden</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('formModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('formModal').style.display = 'none';
+        }
+
+        // Optional: handle form submission
+        document.getElementById('shipmentForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Example: gather data
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            console.log('Form data submitted:', data);
+            alert('Formular wurde übermittelt!');
+
+            closeModal();
+            e.target.reset();
+        });
+    </script>
+
+</body>
+
+</html>
