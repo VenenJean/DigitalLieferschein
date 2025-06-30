@@ -72,19 +72,22 @@
                     </span>
                 </div>
             </div>
+            <div id="buttons">
+                <button type="reset" onclick="resetUtils()">Reset</button>
+                <button id="debugBtn" onclick="setup()" type="button">Debug Setup</button>
+                <button onclick="printDocument()" type="button" id="print-btn">Drucken</button>
+            </div>
         </form>
 
-        <div class="seitenangabe">
-            <button onclick="printDocument()" type="button" id="print-btn">Drucken</button>
-        </div>
+        <div class="seitenangabe"> </div>
 
         <div class="fusszeile"></div>
     </div>
 
     <script src="scripts/data.js"></script>
     <script src="scripts/population.js"></script>
+    <script src="scripts/setup.js"></script>
     <script src="scripts/main.js"></script>
-    <script src="setup.js"></script>
 </body>
 
 </html>

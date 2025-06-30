@@ -33,6 +33,8 @@ function cleanTextarea(textarea) {
         .replace(/\s{2,}/g, ' ');
 
     textarea.value = cleaned;
+
+    triggerEvent(document.getElementById("positionen"), "input");
 }
 
 function resetLocation() {
@@ -58,6 +60,15 @@ function printDocument() {
     resetLocation();
 }
 
+async function resetUtils() {
+    document.getElementById("positionen").dispatchEvent(new Event("input", { bubbles: true }));
+
+    await new Promise((res) => setTimeout(res, 0));
+
+    document.getElementById("positionen").dispatchEvent(new Event("input", { bubbles: true }));
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('input', function (e) {
         if (e.target.classList.contains('auto-resize')) {
@@ -68,4 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     populateLocations();
     restrictPieDate();
+    // setup();
+
+    document.getElementById("debugBtn").hidden = !devMode;
 });

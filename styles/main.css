@@ -4,6 +4,13 @@
 
 /* Anpassungen */
 
+label,
+h2,
+img,
+button {
+    user-select: none;
+}
+
 #data-fields {
     width: 100%;
     display: grid;
@@ -16,4 +23,9 @@
     display: flex;
     flex-direction: column;
     gap: 4pt;
+}
+
+#buttons {
+    margin-top: 25px;
+    margin-left: 94.488px;
 }

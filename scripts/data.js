@@ -1,3 +1,5 @@
+let devMode = true;
+
 // Item Versandstandorte
 const locations = {
     Andere: [
