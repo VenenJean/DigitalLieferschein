@@ -38,7 +38,7 @@ const locations = {
             }
         },
         {
-            id: "",
+            id: "4",
             name: "item Berlin",
             address: {
                 street: "Rudower Chaussee",
@@ -49,7 +49,7 @@ const locations = {
             }
         },
         {
-            id: "4",
+            id: "5",
             name: "item Freiburg",
             address: {
                 street: "Mitscherlichstraße",
@@ -60,7 +60,7 @@ const locations = {
             }
         },
         {
-            id: "5",
+            id: "6",
             name: "item Hamburg",
             address: {
                 street: "Doktor-Flögel-Straße",
@@ -71,7 +71,7 @@ const locations = {
             }
         },
         {
-            id: "6",
+            id: "7",
             name: "item Hannover",
             address: {
                 street: "Imkerstraße",
@@ -82,7 +82,7 @@ const locations = {
             }
         },
         {
-            id: "7",
+            id: "8",
             name: "item Ludwigsburg",
             address: {
                 street: "Bietigheimer Straße",
@@ -93,7 +93,7 @@ const locations = {
             }
         },
         {
-            id: "8",
+            id: "9",
             name: "item Mannheim",
             address: {
                 street: "Badener Straße",
@@ -104,7 +104,7 @@ const locations = {
             }
         },
         {
-            id: "9",
+            id: "10",
             name: "item Mühlhausen",
             address: {
                 street: "Zu den Katzentreppen",
@@ -115,7 +115,7 @@ const locations = {
             }
         },
         {
-            id: "10",
+            id: "11",
             name: "item Nossen",
             address: {
                 street: "Gewerbestraße",
@@ -126,7 +126,7 @@ const locations = {
             }
         },
         {
-            id: "11",
+            id: "12",
             name: "item Ulm",
             address: {
                 street: "August-Nagel-Straße",
@@ -139,7 +139,7 @@ const locations = {
     ],
     Polen: [
         {
-            id: "12",
+            id: "13",
             name: "item Polska Sp. z o.o.",
             address: {
                 street: "ul. Kowalska",
@@ -150,7 +150,7 @@ const locations = {
             }
         },
         {
-            id: "13",
+            id: "14",
             name: "item Polska Sp. z o.o. Oddzial Slask",
             address: {
                 street: "ul. Obrzena Zachodnia",
@@ -163,7 +163,7 @@ const locations = {
     ],
     Frankreich: [
         {
-            id: "14",
+            id: "15",
             name: "item France SAS",
             address: {
                 street: "rue Louis RAMEAU",
@@ -176,7 +176,7 @@ const locations = {
     ],
     Schweiz: [
         {
-            id: "15",
+            id: "16",
             name: "item Schweiz Lyss",
             address: {
                 street: "Südstrasse",
@@ -187,7 +187,7 @@ const locations = {
             }
         },
         {
-            id: "16",
+            id: "17",
             name: "item Schweiz Schlatt",
             address: {
                 street: "Diessenhoferstrasse",
