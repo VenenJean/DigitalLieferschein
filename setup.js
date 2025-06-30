@@ -1,7 +1,7 @@
 window.onload = async (event) => {
     // manully delegating task for other js to run first
     await new Promise(r => setTimeout(r, 500));
-    // return;
+    return;
     // setting the location
     const locationSelect = document.getElementById("locations");
     locationSelect.selectedIndex = 7;

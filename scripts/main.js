@@ -40,8 +40,8 @@ function printDocument() {
     }
 
     constructAddress();
-    // alert("Bitte im Druckdialog die Anzahl der Kopien auf 2 setzen!");
-    // window.print();
+    alert("Bitte im Druckdialog die Anzahl der Kopien auf 2 setzen!");
+    window.print();
     resetLocation();
 }
 
