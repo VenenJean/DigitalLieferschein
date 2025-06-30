@@ -63,6 +63,12 @@ function populateSelectWithOptGroup({
             const selectedValue = event.target.value;
             let selectedItem = null;
 
+            if (selectedValue === '') {
+                const addrEl = document.getElementById("recipient-address");
+                addrEl.innerHTML = "KEINE ADDRESSE";
+                return;
+            }
+
             for (const items of Object.values(groupedData)) {
                 selectedItem = items.find(d => valueFn(d) === selectedValue);
                 if (selectedItem) break;
